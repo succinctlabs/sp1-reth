@@ -19,7 +19,7 @@ To reproduce the benchmarks in our blog post, your system will need:
 - 512+ GB RAM
 - NVME Hard Drive
 
-We ran our benchmarks on a i4g.16xlarge instance on AWS. You may need to add a swap file 
+We ran our benchmarks on a i4g.16xlarge instance on AWS. You may need to add a [swap file](https://phoenixnap.com/kb/linux-swap-file) on NVME.
 
 ## Run
 
