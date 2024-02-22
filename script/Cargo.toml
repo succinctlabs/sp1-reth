@@ -23,9 +23,9 @@ alloy-primitives = { version = "0.6.0", default-features = false, features = [
     "serde",
     "std",
 ] }
-reth-primitives = { git = "https://github.com/succinctlabs/reth-private.git", default-features = false, branch = "sp1-reth" }
+reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "sp1-reth" }
 # revm = "5.0.0"
-revm = { git = "https://github.com/succinctlabs/revm-private.git", branch = "john/v5.0.0-patched", features = ["std"], default-features = false }
+revm = { git = "https://github.com/sp1-patches/revm", branch = "john/v5.0.0-patched", features = ["std"], default-features = false }
 anyhow = "1.0.79"
 hashbrown = "0.14.3"
 ethers-core = "2.0.13"
