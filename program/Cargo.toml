@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
 sp1-reth-primitives = { path = "../primitives" }
-revm = { git = "https://github.com/sp1-patches/revm", branch = "john/v5.0.0-patched", features = ["std"], default-features = false }
+revm = { git = "https://github.com/sp1-patches/revm", branch = "patch-v5.0.0", features = ["std"], default-features = false }
 # reth-primitives = { path = "../../reth/crates/primitives", default-features = false}
 reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "sp1-reth" }
 alloy-rlp = { version = "0.3", default-features = false }
