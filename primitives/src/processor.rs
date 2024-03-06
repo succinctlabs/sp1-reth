@@ -1,4 +1,6 @@
-// Modifications copyright 2023 Succinct Labs.
+// This code is modified from the original implementation of Zeth.
+//
+// Reference: https://github.com/risc0/zeth
 //
 // Copyright 2023 RISC Zero, Inc.
 //
