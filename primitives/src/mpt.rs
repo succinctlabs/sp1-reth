@@ -1,3 +1,7 @@
+// This code is modified from the original implementation of Zeth.
+//
+// Reference: https://github.com/risc0/zeth
+//
 // Copyright 2023 RISC Zero, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
