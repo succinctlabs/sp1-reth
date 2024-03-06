@@ -1,4 +1,8 @@
 //! An implementation of a type-1, bytecompatible compatible, zkEVM written in Rust & SP1.
+//!
+//! The flow for the guest program is based on Zeth.
+//!
+//! Reference: https://github.com/risc0/zeth
 
 #![no_main]
 sp1_zkvm::entrypoint!(main);

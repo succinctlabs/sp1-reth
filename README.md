@@ -70,4 +70,4 @@ We would like to acknowledge the projects below whose previous work has been ins
 - [Reth](https://github.com/paradigmxyz/reth): For providing an excellent execution client reference and primitives needed for processing blocks.
 - [Revm](https://github.com/bluealloy/revm): For providing core execution primitives and a performant EVM implementation.
 - [Alloy](https://github.com/alloy-rs/alloy): For providing core ethereum primitives and RPC methods.
-- [Zeth](https://github.com/risc0/zeth): For providing a performant MPT library that can be compiled inside the zkVM and a reference for how to perform preflight/postflight execution logic. We chose to not fork Zeth directly because we noticed there was an opportunity to reuse significantly more code from Reth, Revm, and Alloy.
+- [Zeth](https://github.com/risc0/zeth): SP1 Reth is originally based on Zeth, but we chose to not fork Zeth directly because we noticed there was an opportunity to reuse significantly more code from Reth, Revm, and Alloy.
