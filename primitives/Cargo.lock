@@ -514,7 +514,7 @@ dependencies = [
 [[package]]
 name = "codecs-derive"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#a888bc7abcbd86d217e91bb39998576212ac1f87"
+source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
 dependencies = [
  "convert_case 0.6.0",
  "parity-scale-codec",
@@ -1530,7 +1530,7 @@ checksum = "c08c74e62047bb2de4ff487b251e4a92e24f48745648451635cec7d591162d9f"
 [[package]]
 name = "reth-codecs"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#a888bc7abcbd86d217e91bb39998576212ac1f87"
+source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
 dependencies = [
  "alloy-primitives",
  "bytes",
@@ -1540,7 +1540,7 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-forks"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#a888bc7abcbd86d217e91bb39998576212ac1f87"
+source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -1553,7 +1553,7 @@ dependencies = [
 [[package]]
 name = "reth-primitives"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#a888bc7abcbd86d217e91bb39998576212ac1f87"
+source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
 dependencies = [
  "alloy-chains",
  "alloy-eips",
@@ -1575,8 +1575,8 @@ dependencies = [
  "reth-codecs",
  "reth-ethereum-forks",
  "reth-rpc-types",
- "revm 5.0.0 (git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched)",
- "revm-primitives 2.0.0 (git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched)",
+ "revm",
+ "revm-primitives",
  "serde",
  "serde_json",
  "sha2",
@@ -1591,7 +1591,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-types"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#a888bc7abcbd86d217e91bb39998576212ac1f87"
+source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -1611,25 +1611,12 @@ dependencies = [
 [[package]]
 name = "revm"
 version = "5.0.0"
-source = "git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
+source = "git+https://github.com/sp1-patches/revm?branch=patch-v5.0.0#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
 dependencies = [
  "auto_impl",
  "cfg-if",
- "revm-interpreter 2.1.0 (git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched)",
- "revm-precompile 4.0.0 (git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched)",
- "serde",
- "serde_json",
-]
-
-[[package]]
-name = "revm"
-version = "5.0.0"
-source = "git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
-dependencies = [
- "auto_impl",
- "cfg-if",
- "revm-interpreter 2.1.0 (git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched)",
- "revm-precompile 4.0.0 (git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched)",
+ "revm-interpreter",
+ "revm-precompile",
  "serde",
  "serde_json",
 ]
@@ -1637,50 +1624,23 @@ dependencies = [
 [[package]]
 name = "revm-interpreter"
 version = "2.1.0"
-source = "git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
+source = "git+https://github.com/sp1-patches/revm?branch=patch-v5.0.0#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
 dependencies = [
- "revm-primitives 2.0.0 (git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched)",
- "serde",
-]
-
-[[package]]
-name = "revm-interpreter"
-version = "2.1.0"
-source = "git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
-dependencies = [
- "revm-primitives 2.0.0 (git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched)",
+ "revm-primitives",
  "serde",
 ]
 
 [[package]]
 name = "revm-precompile"
 version = "4.0.0"
-source = "git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
+source = "git+https://github.com/sp1-patches/revm?branch=patch-v5.0.0#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
 dependencies = [
  "anyhow",
  "aurora-engine-modexp",
  "c-kzg",
  "k256",
  "once_cell",
- "revm-primitives 2.0.0 (git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched)",
- "ripemd",
- "secp256k1",
- "sha2",
- "sp1-precompiles",
- "substrate-bn",
-]
-
-[[package]]
-name = "revm-precompile"
-version = "4.0.0"
-source = "git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
-dependencies = [
- "anyhow",
- "aurora-engine-modexp",
- "c-kzg",
- "k256",
- "once_cell",
- "revm-primitives 2.0.0 (git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched)",
+ "revm-primitives",
  "ripemd",
  "secp256k1",
  "sha2",
@@ -1691,23 +1651,7 @@ dependencies = [
 [[package]]
 name = "revm-primitives"
 version = "2.0.0"
-source = "git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
-dependencies = [
- "alloy-primitives",
- "auto_impl",
- "bitflags",
- "bitvec",
- "cfg-if",
- "enumn",
- "hashbrown 0.14.3",
- "hex",
- "serde",
-]
-
-[[package]]
-name = "revm-primitives"
-version = "2.0.0"
-source = "git+https://github.com/succinctlabs/revm-private.git?branch=john/v5.0.0-patched#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
+source = "git+https://github.com/sp1-patches/revm?branch=patch-v5.0.0#c993e0d60b49e4ee97a160ac4629a4e63f2a2e69"
 dependencies = [
  "alloy-primitives",
  "auto_impl",
@@ -2003,7 +1947,7 @@ dependencies = [
 [[package]]
 name = "sp1-precompiles"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#cf58553c9ba6811d597b3871fbdbaa7849cdfee2"
+source = "git+https://github.com/succinctlabs/sp1.git#8e4937cc77e3bc22ef6cad5b8b534b6a90003778"
 dependencies = [
  "anyhow",
  "bincode",
@@ -2028,7 +1972,7 @@ dependencies = [
  "hex",
  "hex-literal",
  "reth-primitives",
- "revm 5.0.0 (git+https://github.com/sp1-patches/revm?branch=john/v5.0.0-patched)",
+ "revm",
  "rlp",
  "serde",
  "serde_json",
