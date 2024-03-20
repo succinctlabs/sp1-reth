@@ -10,7 +10,8 @@ vergen = { version = "8", default-features = false, features = ["build", "git", 
 [dependencies]
 clap = { version = "4.4.15", features = ["derive", "env"] }
 bincode = "1.3.3"
-sp1-core = { git = "https://github.com/succinctlabs/sp1.git" }
+# sp1-core = { git = "https://github.com/succinctlabs/sp1.git" }
+sp1-core = { path = "../../curta-vm/core" }
 sp1-reth-primitives = { path = "../primitives" }
 
 alloy-rlp = { version = "0.3", default-features = false }
