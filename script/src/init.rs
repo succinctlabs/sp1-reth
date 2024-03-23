@@ -57,7 +57,7 @@ impl SP1RethInputInitializer for SP1RethInput {
             .await?
             .unwrap();
 
-        // Intiialize the db.
+        // Initialize the db.
         let provider_db = RemoteDb::new(provider, parent_header.number.unwrap().as_limbs()[0]);
 
         // Create the input.
