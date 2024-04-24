@@ -7,14 +7,13 @@ edition = "2021"
 [dependencies]
 sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
 sp1-reth-primitives = { path = "../primitives" }
-revm = { git = "https://github.com/sp1-patches/revm-new", branch = "sp1-patch", features = [
+revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", features = [
     "std",
 ], default-features = false }
-reth-primitives = { git = "https://github.com/paradigmxyz/reth", default-features = false }
+reth-primitives = { git = "https://github.com/paradigmxyz/reth", default-features = false, tag = "v0.2.0-beta.6" }
 
 [patch.crates-io]
 tiny-keccak = { git = "https://github.com/sp1-patches/tiny-keccak", branch = "patch-v2.0.2" }
 sha2-v0-10-8 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", package = "sha2", branch = "v0.10.8" }
-revm = { git = "https://github.com/sp1-patches/revm-new", branch = "sp1-patch", features = [
-    "std",
-], default-features = false }
+revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35" }
+revm-primitives = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35" }

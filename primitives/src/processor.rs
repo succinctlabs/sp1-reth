@@ -162,6 +162,7 @@ where
     pub fn execute(&mut self) {
         let gwei_to_wei: U256 = U256::from(1_000_000_000);
         let spec_id = SpecId::SHANGHAI;
+
         let mut evm = Evm::builder()
             .with_spec_id(spec_id)
             .modify_cfg_env(|cfg_env| {
@@ -177,7 +178,7 @@ where
                     U256::from(self.header.as_mut().unwrap().base_fee_per_gas.unwrap());
                 blk_env.gas_limit = U256::from(self.header.as_mut().unwrap().gas_limit);
             })
-            .with_db(self.db.take().unwrap())
+            .with_db(self.db.as_mut().take().unwrap())
             .build();
 
         let mut logs_bloom = Bloom::default();
@@ -214,12 +215,7 @@ where
                 tx_type: tx.transaction.tx_type(),
                 success: res.result.is_success(),
                 cumulative_gas_used: cumulative_gas_used.try_into().unwrap(),
-                logs: res
-                    .result
-                    .logs()
-                    .into_iter()
-                    .map(|log| log.clone().into())
-                    .collect(),
+                logs: res.result.logs().to_vec(),
             };
 
             // Update logs bloom.
@@ -260,8 +256,6 @@ where
         ));
         h.logs_bloom = logs_bloom;
         h.gas_used = cumulative_gas_used.try_into().unwrap();
-
-        self.db = Some(evm.context.evm.db);
     }
 }
 
@@ -340,7 +334,7 @@ fn fill_eth_tx_env(tx_env: &mut TxEnv, essence: &Transaction, caller: Address) {
             } else {
                 TransactTo::create()
             };
-            tx_env.value = tx.value.into();
+            tx_env.value = tx.value;
             tx_env.data = tx.input.clone();
             tx_env.chain_id = tx.chain_id;
             tx_env.nonce = Some(tx.nonce);
@@ -356,7 +350,7 @@ fn fill_eth_tx_env(tx_env: &mut TxEnv, essence: &Transaction, caller: Address) {
             } else {
                 TransactTo::create()
             };
-            tx_env.value = tx.value.into();
+            tx_env.value = tx.value;
             tx_env.data = tx.input.clone();
             tx_env.chain_id = Some(tx.chain_id);
             tx_env.nonce = Some(tx.nonce);
@@ -382,7 +376,7 @@ fn fill_eth_tx_env(tx_env: &mut TxEnv, essence: &Transaction, caller: Address) {
             } else {
                 TransactTo::create()
             };
-            tx_env.value = tx.value.into();
+            tx_env.value = tx.value;
             tx_env.data = tx.input.clone();
             tx_env.chain_id = Some(tx.chain_id);
             tx_env.nonce = Some(tx.nonce);

@@ -3147,20 +3147,7 @@ dependencies = [
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
  "alloy-primitives 0.7.1",
  "bytes",
- "reth-codecs-derive 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6)",
-]
-
-[[package]]
-name = "reth-codecs"
-version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth#ddc5ed326390ba30fd3382bff7df0da77d99da20"
-dependencies = [
- "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
- "alloy-primitives 0.7.1",
- "bytes",
- "modular-bitfield",
- "reth-codecs-derive 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth)",
- "serde",
+ "reth-codecs-derive",
 ]
 
 [[package]]
@@ -3175,33 +3162,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "reth-codecs-derive"
-version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth#ddc5ed326390ba30fd3382bff7df0da77d99da20"
-dependencies = [
- "convert_case 0.6.0",
- "proc-macro2",
- "quote",
- "syn 2.0.48",
-]
-
-[[package]]
 name = "reth-ethereum-forks"
 version = "0.2.0-beta.6"
 source = "git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6#ac29b4b73be382caf2a2462d426e6bad75e18af9"
-dependencies = [
- "alloy-chains",
- "alloy-primitives 0.7.1",
- "alloy-rlp",
- "crc",
- "serde",
- "thiserror",
-]
-
-[[package]]
-name = "reth-ethereum-forks"
-version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth#ddc5ed326390ba30fd3382bff7df0da77d99da20"
 dependencies = [
  "alloy-chains",
  "alloy-primitives 0.7.1",
@@ -3232,46 +3195,11 @@ dependencies = [
  "nybbles",
  "once_cell",
  "rayon",
- "reth-codecs 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6)",
- "reth-ethereum-forks 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6)",
- "reth-rpc-types 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6)",
- "revm 8.0.0 (git+https://github.com/sp1-patches/revm-new)",
- "revm-primitives 3.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "roaring",
- "secp256k1 0.27.0",
- "serde",
- "serde_json",
- "serde_with",
- "strum 0.26.1",
- "thiserror",
-]
-
-[[package]]
-name = "reth-primitives"
-version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth#ddc5ed326390ba30fd3382bff7df0da77d99da20"
-dependencies = [
- "alloy-chains",
- "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
- "alloy-genesis",
- "alloy-primitives 0.7.1",
- "alloy-rlp",
- "alloy-trie",
- "byteorder",
- "bytes",
- "cfg-if",
- "derive_more",
- "enr 0.10.0",
- "itertools 0.12.1",
- "modular-bitfield",
- "nybbles",
- "once_cell",
- "rayon",
- "reth-codecs 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth)",
- "reth-ethereum-forks 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth)",
- "reth-rpc-types 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth)",
- "revm 8.0.0 (git+https://github.com/sp1-patches/revm-new)",
- "revm-primitives 3.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "reth-codecs",
+ "reth-ethereum-forks",
+ "reth-rpc-types",
+ "revm 8.0.0 (git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35)",
+ "revm-primitives 3.1.1 (git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35)",
  "roaring",
  "secp256k1 0.27.0",
  "serde",
@@ -3285,28 +3213,6 @@ dependencies = [
 name = "reth-rpc-types"
 version = "0.2.0-beta.6"
 source = "git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6#ac29b4b73be382caf2a2462d426e6bad75e18af9"
-dependencies = [
- "alloy-genesis",
- "alloy-primitives 0.7.1",
- "alloy-rlp",
- "alloy-rpc-types 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
- "alloy-rpc-types-anvil",
- "alloy-rpc-types-engine",
- "alloy-rpc-types-trace",
- "enr 0.10.0",
- "jsonrpsee-types",
- "secp256k1 0.27.0",
- "serde",
- "serde_json",
- "serde_with",
- "thiserror",
- "url",
-]
-
-[[package]]
-name = "reth-rpc-types"
-version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth#ddc5ed326390ba30fd3382bff7df0da77d99da20"
 dependencies = [
  "alloy-genesis",
  "alloy-primitives 0.7.1",
@@ -3354,20 +3260,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "revm"
-version = "8.0.0"
-source = "git+https://github.com/sp1-patches/revm-new#1ca3d39f6a9e9778f8eb0fcb74fe529345a531b4"
-dependencies = [
- "auto_impl",
- "cfg-if",
- "dyn-clone",
- "revm-interpreter 4.0.0 (git+https://github.com/sp1-patches/revm-new)",
- "revm-precompile 6.0.0 (git+https://github.com/sp1-patches/revm-new)",
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "revm-interpreter"
 version = "4.0.0"
 source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#4ec45d934c0326dbf61d1d2616d2f433de910c59"
@@ -3382,15 +3274,6 @@ version = "4.0.0"
 source = "git+https://github.com/sp1-patches/revm-new?branch=sp1-patch#0fbb9b3ae09c77bb0d3e8a30d2a31ef350387fd9"
 dependencies = [
  "revm-primitives 3.1.1 (git+https://github.com/sp1-patches/revm-new?branch=sp1-patch)",
- "serde",
-]
-
-[[package]]
-name = "revm-interpreter"
-version = "4.0.0"
-source = "git+https://github.com/sp1-patches/revm-new#1ca3d39f6a9e9778f8eb0fcb74fe529345a531b4"
-dependencies = [
- "revm-primitives 3.1.1 (git+https://github.com/sp1-patches/revm-new)",
  "serde",
 ]
 
@@ -3429,41 +3312,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "revm-precompile"
-version = "6.0.0"
-source = "git+https://github.com/sp1-patches/revm-new#1ca3d39f6a9e9778f8eb0fcb74fe529345a531b4"
-dependencies = [
- "aurora-engine-modexp",
- "c-kzg",
- "k256",
- "once_cell",
- "revm-primitives 3.1.1 (git+https://github.com/sp1-patches/revm-new)",
- "ripemd",
- "secp256k1 0.29.0",
- "sha2",
- "substrate-bn",
-]
-
-[[package]]
-name = "revm-primitives"
-version = "3.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cbbc9640790cebcb731289afb7a7d96d16ad94afeb64b5d0b66443bd151e79d6"
-dependencies = [
- "alloy-primitives 0.7.1",
- "auto_impl",
- "bitflags 2.5.0",
- "bitvec",
- "c-kzg",
- "cfg-if",
- "dyn-clone",
- "enumn",
- "hashbrown 0.14.3",
- "hex",
- "serde",
-]
-
-[[package]]
 name = "revm-primitives"
 version = "3.1.1"
 source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#4ec45d934c0326dbf61d1d2616d2f433de910c59"
@@ -3472,6 +3320,7 @@ dependencies = [
  "auto_impl",
  "bitflags 2.5.0",
  "bitvec",
+ "c-kzg",
  "cfg-if",
  "dyn-clone",
  "enumn",
@@ -3484,23 +3333,6 @@ dependencies = [
 name = "revm-primitives"
 version = "3.1.1"
 source = "git+https://github.com/sp1-patches/revm-new?branch=sp1-patch#0fbb9b3ae09c77bb0d3e8a30d2a31ef350387fd9"
-dependencies = [
- "alloy-primitives 0.7.1",
- "auto_impl",
- "bitflags 2.5.0",
- "bitvec",
- "cfg-if",
- "dyn-clone",
- "enumn",
- "hashbrown 0.14.3",
- "hex",
- "serde",
-]
-
-[[package]]
-name = "revm-primitives"
-version = "3.1.1"
-source = "git+https://github.com/sp1-patches/revm-new#1ca3d39f6a9e9778f8eb0fcb74fe529345a531b4"
 dependencies = [
  "alloy-primitives 0.7.1",
  "auto_impl",
@@ -4182,7 +4014,7 @@ dependencies = [
 name = "sp1-reth"
 version = "0.1.0"
 dependencies = [
- "alloy-primitives 0.6.3",
+ "alloy-primitives 0.7.1",
  "alloy-providers",
  "alloy-rlp",
  "alloy-rlp-derive",
@@ -4195,7 +4027,7 @@ dependencies = [
  "ethers-core",
  "ethers-providers",
  "hashbrown 0.14.3",
- "reth-primitives 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth)",
+ "reth-primitives",
  "revm 8.0.0 (git+https://github.com/sp1-patches/revm-new?branch=sp1-patch)",
  "rlp",
  "serde",
@@ -4218,7 +4050,7 @@ dependencies = [
  "anyhow",
  "hashbrown 0.14.3",
  "hex",
- "reth-primitives 0.2.0-beta.6 (git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6)",
+ "reth-primitives",
  "revm 8.0.0 (git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35)",
  "rlp",
  "serde",

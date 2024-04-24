@@ -22,12 +22,12 @@ alloy-rlp-derive = { version = "0.3", default-features = false }
 rlp = "0.5.2"
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
-alloy-primitives = { version = "0.6.0", default-features = false, features = [
+alloy-primitives = { version = "0.7", default-features = false, features = [
     "rlp",
     "serde",
     "std",
 ] }
-reth-primitives = { git = "https://github.com/paradigmxyz/reth", default-features = false }
+reth-primitives = { git = "https://github.com/paradigmxyz/reth", default-features = false, tag = "v0.2.0-beta.6" }
 revm = { git = "https://github.com/sp1-patches/revm-new", branch = "sp1-patch", features = [
     "std",
 ], default-features = false }
@@ -46,4 +46,5 @@ async-trait = "0.1.77"
 neon = ["sp1-core/neon"]
 
 [patch.crates-io]
-revm = { git = "https://github.com/sp1-patches/revm-new" }
+revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35" }
+revm-primitives = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35" }

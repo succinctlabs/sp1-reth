@@ -1,6 +1,5 @@
 //! Common conversions between Alloy and Reth types.
 
-use alloy_primitives::U64;
 use alloy_rpc_types::AccessListItem as AlloyAccessListItem;
 use alloy_rpc_types::Header as AlloyHeader;
 use alloy_rpc_types::Signature as AlloySignature;
@@ -32,60 +31,56 @@ impl IntoReth<RethWithdrawal> for AlloyWithdrawal {
 
 impl IntoReth<RethTransaction> for AlloyTransaction {
     fn into_reth(self) -> RethTransaction {
-        let tx_type: u64 = self.transaction_type.unwrap_or(0).try_into().unwrap();
+        let tx_type: u64 = self.transaction_type.unwrap_or(0).into();
         let inner_tx = match tx_type {
             0 => Transaction::Legacy(TxLegacy {
-                chain_id: self.chain_id.map(|chain_id| chain_id.try_into().unwrap()),
-                nonce: self.nonce.try_into().unwrap(),
-                gas_price: self.gas_price.unwrap().try_into().unwrap(),
+                chain_id: self.chain_id,
+                nonce: self.nonce,
+                gas_price: self.gas_price.unwrap(),
                 gas_limit: self.gas.try_into().unwrap(),
                 to: match self.to {
                     None => reth_primitives::TransactionKind::Create,
                     Some(to) => reth_primitives::TransactionKind::Call(to),
                 },
-                value: self.value.into(),
+                value: self.value,
                 input: self.input,
             }),
             1 => Transaction::Eip2930(TxEip2930 {
-                chain_id: self.chain_id.unwrap().try_into().unwrap(),
-                nonce: self.nonce.try_into().unwrap(),
-                gas_price: self.gas_price.unwrap().try_into().unwrap(),
+                chain_id: self.chain_id.unwrap(),
+                nonce: self.nonce,
+                gas_price: self.gas_price.unwrap(),
                 gas_limit: self.gas.try_into().unwrap(),
                 to: match self.to {
                     None => reth_primitives::TransactionKind::Create,
                     Some(to) => reth_primitives::TransactionKind::Call(to),
                 },
-                value: self.value.into(),
+                value: self.value,
                 input: self.input,
                 access_list: reth_primitives::AccessList(
                     self.access_list
                         .unwrap()
-                        .into_iter()
-                        .map(|item| item.into_reth())
+                        .iter()
+                        .map(|item| item.clone().into_reth())
                         .collect(),
                 ),
             }),
             2 => Transaction::Eip1559(TxEip1559 {
-                chain_id: self.chain_id.unwrap().try_into().unwrap(),
-                nonce: self.nonce.try_into().unwrap(),
-                max_fee_per_gas: self.max_fee_per_gas.unwrap().try_into().unwrap(),
-                max_priority_fee_per_gas: self
-                    .max_priority_fee_per_gas
-                    .unwrap()
-                    .try_into()
-                    .unwrap(),
+                chain_id: self.chain_id.unwrap(),
+                nonce: self.nonce,
+                max_fee_per_gas: self.max_fee_per_gas.unwrap(),
+                max_priority_fee_per_gas: self.max_priority_fee_per_gas.unwrap(),
                 gas_limit: self.gas.try_into().unwrap(),
                 to: match self.to {
                     None => reth_primitives::TransactionKind::Create,
                     Some(to) => reth_primitives::TransactionKind::Call(to),
                 },
-                value: self.value.into(),
+                value: self.value,
                 input: self.input,
                 access_list: reth_primitives::AccessList(
                     self.access_list
                         .unwrap()
-                        .into_iter()
-                        .map(|item| item.into_reth())
+                        .iter()
+                        .map(|item| item.clone().into_reth())
                         .collect(),
                 ),
             }),
@@ -136,10 +131,10 @@ impl IntoReth<RethHeader> for AlloyHeader {
             withdrawals_root: self.withdrawals_root,
             logs_bloom: self.logs_bloom.0.into(),
             difficulty: self.difficulty,
-            number: self.number.unwrap().try_into().unwrap(),
+            number: self.number.unwrap(),
             gas_limit: self.gas_limit.try_into().unwrap(),
             gas_used: self.gas_used.try_into().unwrap(),
-            timestamp: self.timestamp.try_into().unwrap(),
+            timestamp: self.timestamp,
             extra_data: self.extra_data.0.into(),
             mix_hash: self.mix_hash.unwrap(),
             nonce: u64::from_be_bytes(self.nonce.unwrap().0),
