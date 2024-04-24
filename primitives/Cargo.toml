@@ -17,10 +17,13 @@ alloy-primitives = { version = "0.7", default-features = false, features = [
 rlp = "0.5.2"
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
+
 reth-primitives = { git = "https://github.com/paradigmxyz/reth", default-features = false, tag = "v0.2.0-beta.6" }
 revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", features = [
-    "std",
+    "serde",
 ], default-features = false }
+revm-primitives = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", default-features = false }
+
 anyhow = "1.0.79"
 hashbrown = "0.14.3"
 url = "2.5.0"

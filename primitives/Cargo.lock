@@ -2256,6 +2256,7 @@ dependencies = [
  "hex-literal",
  "reth-primitives",
  "revm",
+ "revm-primitives",
  "rlp",
  "serde",
  "serde_json",

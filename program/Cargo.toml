@@ -7,10 +7,12 @@ edition = "2021"
 [dependencies]
 sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
 sp1-reth-primitives = { path = "../primitives" }
-revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", features = [
-    "std",
-], default-features = false }
+
 reth-primitives = { git = "https://github.com/paradigmxyz/reth", default-features = false, tag = "v0.2.0-beta.6" }
+revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", features = [
+    "serde",
+], default-features = false }
+revm-primitives = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", default-features = false }
 
 [patch.crates-io]
 tiny-keccak = { git = "https://github.com/sp1-patches/tiny-keccak", branch = "patch-v2.0.2" }
