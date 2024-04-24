@@ -32,11 +32,7 @@ impl IntoReth<RethWithdrawal> for AlloyWithdrawal {
 
 impl IntoReth<RethTransaction> for AlloyTransaction {
     fn into_reth(self) -> RethTransaction {
-        let tx_type: u64 = self
-            .transaction_type
-            .unwrap_or(U64::ZERO)
-            .try_into()
-            .unwrap();
+        let tx_type: u64 = self.transaction_type.unwrap_or(0).try_into().unwrap();
         let inner_tx = match tx_type {
             0 => Transaction::Legacy(TxLegacy {
                 chain_id: self.chain_id.map(|chain_id| chain_id.try_into().unwrap()),

@@ -218,7 +218,7 @@ where
                     .result
                     .logs()
                     .into_iter()
-                    .map(|log| log.into())
+                    .map(|log| log.clone().into())
                     .collect(),
             };
 
