@@ -17,7 +17,7 @@ alloy-primitives = { version = "0.6.0", default-features = false, features = [
     "std",
 ] }
 # reth-primitives = { git = "https://github.com/paradigmxyz/reth.git" }
-reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "sp1-reth" }
+reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "ratan/fix-sp1-reth" }
 # revm = "5.0.0"
 revm = { git = "https://github.com/sp1-patches/revm", branch = "patch-v5.0.0", features = ["std"], default-features = false }
 anyhow = "1.0.79"

@@ -22,9 +22,9 @@ checksum = "0942ffc6dcaadf03badf6e6a2d0228460359d5e34b57ccdc720b7382dfbd5ec5"
 
 [[package]]
 name = "alloy-chains"
-version = "0.1.12"
+version = "0.1.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "146dc3f33a9e282751a62ddd6687292c504605cc285a49500541e5d1e5b7617b"
+checksum = "fe6c2674230e94ea98767550b02853bf7024b46f784827be95acfc5f5f1a445f"
 dependencies = [
  "alloy-rlp",
  "num_enum",
@@ -514,7 +514,7 @@ dependencies = [
 [[package]]
 name = "codecs-derive"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
+source = "git+https://github.com/sp1-patches/reth?branch=ratan/fix-sp1-reth#2ba61231d88b6303c1eecbf0e6f2e669f9f61ae7"
 dependencies = [
  "convert_case 0.6.0",
  "parity-scale-codec",
@@ -1530,7 +1530,7 @@ checksum = "c08c74e62047bb2de4ff487b251e4a92e24f48745648451635cec7d591162d9f"
 [[package]]
 name = "reth-codecs"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
+source = "git+https://github.com/sp1-patches/reth?branch=ratan/fix-sp1-reth#2ba61231d88b6303c1eecbf0e6f2e669f9f61ae7"
 dependencies = [
  "alloy-primitives",
  "bytes",
@@ -1540,7 +1540,7 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-forks"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
+source = "git+https://github.com/sp1-patches/reth?branch=ratan/fix-sp1-reth#2ba61231d88b6303c1eecbf0e6f2e669f9f61ae7"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -1553,7 +1553,7 @@ dependencies = [
 [[package]]
 name = "reth-primitives"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
+source = "git+https://github.com/sp1-patches/reth?branch=ratan/fix-sp1-reth#2ba61231d88b6303c1eecbf0e6f2e669f9f61ae7"
 dependencies = [
  "alloy-chains",
  "alloy-eips",
@@ -1591,7 +1591,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-types"
 version = "0.1.0-alpha.18"
-source = "git+https://github.com/sp1-patches/reth?branch=sp1-reth#3b31e8b34dcef9d34355846d9f1a803dbc4c44af"
+source = "git+https://github.com/sp1-patches/reth?branch=ratan/fix-sp1-reth#2ba61231d88b6303c1eecbf0e6f2e669f9f61ae7"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",

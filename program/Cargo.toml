@@ -5,11 +5,13 @@ name = "sp1-revm-program"
 edition = "2021"
 
 [dependencies]
-sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git" }
+sp1-zkvm = { git = "https://github.com/succinctlabs/sp1.git", branch = "ratan/downgrade-strum" }
 sp1-reth-primitives = { path = "../primitives" }
-revm = { git = "https://github.com/sp1-patches/revm", branch = "patch-v5.0.0", features = ["std"], default-features = false }
+revm = { git = "https://github.com/sp1-patches/revm", branch = "patch-v5.0.0", features = [
+    "std",
+], default-features = false }
 # reth-primitives = { path = "../../reth/crates/primitives", default-features = false}
-reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "sp1-reth" }
+reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "ratan/fix-sp1-reth" }
 alloy-rlp = { version = "0.3", default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
@@ -17,7 +19,7 @@ alloy-primitives = { version = "0.6.0", default-features = false, features = [
     "rlp",
     "serde",
     "std",
-    "tiny-keccak"
+    "tiny-keccak",
 ] }
 anyhow = "1.0.75"
 hashbrown = "0.14.3"

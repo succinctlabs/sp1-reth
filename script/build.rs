@@ -1,4 +1,4 @@
-// use sp1_helper::build_program;
+use sp1_helper::build_program;
 
 fn main() {
     vergen::EmitBuilder::builder()
@@ -7,5 +7,5 @@ fn main() {
         .emit()
         .unwrap();
 
-    // build_program("../program")
+    build_program("../program")
 }
