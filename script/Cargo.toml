@@ -28,7 +28,7 @@ alloy-primitives = { version = "0.6.0", default-features = false, features = [
     "serde",
     "std",
 ] }
-reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "ratan/fix-sp1-reth" }
+reth-primitives = { git = "https://github.com/sp1-patches/reth", default-features = false, branch = "sp1-reth" }
 # revm = "5.0.0"
 revm = { git = "https://github.com/sp1-patches/revm", branch = "patch-v5.0.0", features = [
     "std",
@@ -38,7 +38,7 @@ hashbrown = "0.14.3"
 ethers-core = "2.0.13"
 ethers-providers = "2.0.13"
 tokio = { version = "1.36.0", features = ["full"] }
-alloy-providers = { git = "https://github.com/alloy-rs/alloy", version = "0.1.0" }
+# alloy-provider = { git = "https://github.com/alloy-rs/alloy", version = "0.1.0" }
 alloy-rpc-types = { git = "https://github.com/alloy-rs/alloy", version = "0.1.0" }
 alloy-transport-http = { git = "https://github.com/alloy-rs/alloy", version = "0.1.0" }
 url = "2.5.0"
