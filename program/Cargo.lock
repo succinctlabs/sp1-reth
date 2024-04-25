@@ -49,7 +49,7 @@ dependencies = [
 [[package]]
 name = "alloy-consensus"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#8808d21677ed9a05ff04000ac7f4acdd2fde94e3"
+source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
 dependencies = [
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy)",
  "alloy-primitives",
@@ -76,7 +76,7 @@ dependencies = [
 [[package]]
 name = "alloy-eips"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#8808d21677ed9a05ff04000ac7f4acdd2fde94e3"
+source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -99,11 +99,12 @@ dependencies = [
 [[package]]
 name = "alloy-genesis"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#8808d21677ed9a05ff04000ac7f4acdd2fde94e3"
+source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
 dependencies = [
  "alloy-primitives",
  "alloy-serde 0.1.0 (git+https://github.com/alloy-rs/alloy)",
  "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -173,7 +174,7 @@ dependencies = [
 [[package]]
 name = "alloy-rpc-types"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#8808d21677ed9a05ff04000ac7f4acdd2fde94e3"
+source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
 dependencies = [
  "alloy-consensus 0.1.0 (git+https://github.com/alloy-rs/alloy)",
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy)",
@@ -239,7 +240,7 @@ dependencies = [
 [[package]]
 name = "alloy-serde"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#8808d21677ed9a05ff04000ac7f4acdd2fde94e3"
+source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
 dependencies = [
  "alloy-primitives",
  "serde",
@@ -492,9 +493,9 @@ checksum = "4c7f02d4ea65f2c1853089ffd8d2787bdbc63de2f0d29dedbcf8ccdfa0ccd4cf"
 
 [[package]]
 name = "base64"
-version = "0.21.7"
+version = "0.22.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d297deb1925b89f2ccc13d7635fa0714f12c87adce1c75356b39ca9b7178567"
+checksum = "9475866fec1451be56a3c2400fd081ff546538961565ccb5b7142cbd22bc7a51"
 
 [[package]]
 name = "base64ct"
@@ -920,25 +921,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "enr"
-version = "0.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2a3d8dc56e02f954cac8eb489772c552c473346fc34f67412bb6244fd647f7e4"
-dependencies = [
- "base64",
- "bytes",
- "hex",
- "k256",
- "log",
- "rand",
- "rlp",
- "secp256k1 0.27.0",
- "serde",
- "sha3",
- "zeroize",
-]
-
-[[package]]
 name = "enumn"
 version = "0.1.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1222,15 +1204,6 @@ dependencies = [
 
 [[package]]
 name = "itertools"
-version = "0.11.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b1c173a5686ce8bfa551b3563d0c2170bf24ca44da99c7ca4bfdab5418c3fe57"
-dependencies = [
- "either",
-]
-
-[[package]]
-name = "itertools"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569"
@@ -1278,15 +1251,6 @@ dependencies = [
  "once_cell",
  "sha2",
  "signature",
-]
-
-[[package]]
-name = "keccak"
-version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ecc2af9a1119c51f12a14607e783cb977bde58bc069ff0c3da1095e635d70654"
-dependencies = [
- "cpufeatures",
 ]
 
 [[package]]
@@ -1493,7 +1457,7 @@ checksum = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
 [[package]]
 name = "p3-baby-bear"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
  "num-bigint",
  "p3-field",
@@ -1507,7 +1471,7 @@ dependencies = [
 [[package]]
 name = "p3-dft"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
  "p3-field",
  "p3-matrix",
@@ -1519,7 +1483,7 @@ dependencies = [
 [[package]]
 name = "p3-field"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
  "itertools 0.12.1",
  "num-bigint",
@@ -1532,7 +1496,7 @@ dependencies = [
 [[package]]
 name = "p3-matrix"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
  "itertools 0.12.1",
  "p3-field",
@@ -1546,14 +1510,14 @@ dependencies = [
 [[package]]
 name = "p3-maybe-rayon"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 
 [[package]]
 name = "p3-mds"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
- "itertools 0.11.0",
+ "itertools 0.12.1",
  "p3-dft",
  "p3-field",
  "p3-matrix",
@@ -1565,7 +1529,7 @@ dependencies = [
 [[package]]
 name = "p3-poseidon2"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
  "gcd",
  "p3-field",
@@ -1577,7 +1541,7 @@ dependencies = [
 [[package]]
 name = "p3-symmetric"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
  "itertools 0.12.1",
  "p3-field",
@@ -1587,7 +1551,7 @@ dependencies = [
 [[package]]
 name = "p3-util"
 version = "0.1.0"
-source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#056f328a5096049b2b308fb6dc3497249e81d354"
+source = "git+https://github.com/Plonky3/Plonky3.git?branch=sp1#aef4f8f03f960925f7088d757aeeb956a7f4b30c"
 dependencies = [
  "serde",
 ]
@@ -1842,7 +1806,7 @@ checksum = "adad44e29e4c806119491a7f06f03de4d1af22c3a680dd47f1e6e179439d1f56"
 [[package]]
 name = "reth-codecs"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6#ac29b4b73be382caf2a2462d426e6bad75e18af9"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
 dependencies = [
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
  "alloy-primitives",
@@ -1853,7 +1817,7 @@ dependencies = [
 [[package]]
 name = "reth-codecs-derive"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6#ac29b4b73be382caf2a2462d426e6bad75e18af9"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
 dependencies = [
  "convert_case 0.6.0",
  "proc-macro2",
@@ -1864,7 +1828,7 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-forks"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6#ac29b4b73be382caf2a2462d426e6bad75e18af9"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -1877,7 +1841,7 @@ dependencies = [
 [[package]]
 name = "reth-primitives"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6#ac29b4b73be382caf2a2462d426e6bad75e18af9"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
 dependencies = [
  "alloy-chains",
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
@@ -1889,8 +1853,8 @@ dependencies = [
  "bytes",
  "cfg-if",
  "derive_more",
- "enr",
  "itertools 0.12.1",
+ "k256",
  "modular-bitfield",
  "nybbles",
  "once_cell",
@@ -1901,7 +1865,6 @@ dependencies = [
  "revm",
  "revm-primitives",
  "roaring",
- "secp256k1 0.27.0",
  "serde",
  "serde_json",
  "serde_with",
@@ -1912,7 +1875,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-types"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/paradigmxyz/reth?tag=v0.2.0-beta.6#ac29b4b73be382caf2a2462d426e6bad75e18af9"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
 dependencies = [
  "alloy-genesis 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
  "alloy-primitives",
@@ -1921,9 +1884,8 @@ dependencies = [
  "alloy-rpc-types-anvil",
  "alloy-rpc-types-engine",
  "alloy-rpc-types-trace",
- "enr",
  "jsonrpsee-types",
- "secp256k1 0.27.0",
+ "k256",
  "serde",
  "serde_json",
  "serde_with",
@@ -1934,7 +1896,7 @@ dependencies = [
 [[package]]
 name = "revm"
 version = "8.0.0"
-source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#4ec45d934c0326dbf61d1d2616d2f433de910c59"
+source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#1548f752cfcc89182d80fc1a6a08350e4887bbe6"
 dependencies = [
  "auto_impl",
  "cfg-if",
@@ -1948,7 +1910,7 @@ dependencies = [
 [[package]]
 name = "revm-interpreter"
 version = "4.0.0"
-source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#4ec45d934c0326dbf61d1d2616d2f433de910c59"
+source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#1548f752cfcc89182d80fc1a6a08350e4887bbe6"
 dependencies = [
  "revm-primitives",
  "serde",
@@ -1957,15 +1919,15 @@ dependencies = [
 [[package]]
 name = "revm-precompile"
 version = "6.0.0"
-source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#4ec45d934c0326dbf61d1d2616d2f433de910c59"
+source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#1548f752cfcc89182d80fc1a6a08350e4887bbe6"
 dependencies = [
+ "anyhow",
  "aurora-engine-modexp",
  "c-kzg",
  "k256",
  "once_cell",
  "revm-primitives",
  "ripemd",
- "secp256k1 0.28.2",
  "sha2",
  "sp1-precompiles",
  "substrate-bn",
@@ -1974,7 +1936,7 @@ dependencies = [
 [[package]]
 name = "revm-primitives"
 version = "3.1.1"
-source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#4ec45d934c0326dbf61d1d2616d2f433de910c59"
+source = "git+https://github.com/sp1-patches/revm-new?branch=ratan/secp256k1-on-v35#1548f752cfcc89182d80fc1a6a08350e4887bbe6"
 dependencies = [
  "alloy-primitives",
  "auto_impl",
@@ -2158,44 +2120,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "secp256k1"
-version = "0.27.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "25996b82292a7a57ed3508f052cfff8640d38d32018784acd714758b43da9c8f"
-dependencies = [
- "rand",
- "secp256k1-sys 0.8.1",
-]
-
-[[package]]
-name = "secp256k1"
-version = "0.28.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d24b59d129cdadea20aea4fb2352fa053712e5d713eee47d700cd4b2bc002f10"
-dependencies = [
- "rand",
- "secp256k1-sys 0.9.2",
-]
-
-[[package]]
-name = "secp256k1-sys"
-version = "0.8.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "70a129b9e9efbfb223753b9163c4ab3b13cff7fd9c7f010fbac25ab4099fa07e"
-dependencies = [
- "cc",
-]
-
-[[package]]
-name = "secp256k1-sys"
-version = "0.9.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e5d1746aae42c19d583c3c1a8c646bfad910498e2051c551a7f2e3c0c9fbb7eb"
-dependencies = [
- "cc",
-]
-
-[[package]]
 name = "semver"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2253,9 +2177,9 @@ dependencies = [
 
 [[package]]
 name = "serde_with"
-version = "3.7.0"
+version = "3.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee80b0e361bbf88fd2f6e242ccd19cfda072cb0faa6ae694ecee08199938569a"
+checksum = "2c85f8e96d1d6857f13768fcbd895fcb06225510022a2774ed8b5150581847b0"
 dependencies = [
  "base64",
  "chrono",
@@ -2271,9 +2195,9 @@ dependencies = [
 
 [[package]]
 name = "serde_with_macros"
-version = "3.7.0"
+version = "3.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6561dc161a9224638a31d876ccdfefbc1df91d3f3a8342eddb35f055d48c7655"
+checksum = "c8b3a576c4eb2924262d5951a3b737ccaf16c931e39a2810c36f9a7e25575557"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -2289,16 +2213,6 @@ dependencies = [
  "cfg-if",
  "cpufeatures",
  "digest 0.10.7",
-]
-
-[[package]]
-name = "sha3"
-version = "0.10.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "75872d278a8f37ef87fa0ddbda7802605cb18344497949862c0d4dcb291eba60"
-dependencies = [
- "digest 0.10.7",
- "keccak",
 ]
 
 [[package]]
@@ -2343,7 +2257,7 @@ dependencies = [
 [[package]]
 name = "sp1-precompiles"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#118518d9786d97d8406ae4e0219601f4d419791b"
+source = "git+https://github.com/succinctlabs/sp1.git#e413e82e86ef97007094d830da1d3b278075a4bc"
 dependencies = [
  "anyhow",
  "bincode",
@@ -2360,7 +2274,7 @@ dependencies = [
 [[package]]
 name = "sp1-primitives"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#97d4ae2bd1e0092a9237af59d5258c165ff2939a"
+source = "git+https://github.com/succinctlabs/sp1.git#e413e82e86ef97007094d830da1d3b278075a4bc"
 dependencies = [
  "itertools 0.12.1",
  "lazy_static",
@@ -2394,6 +2308,7 @@ dependencies = [
 name = "sp1-revm-program"
 version = "0.1.0"
 dependencies = [
+ "alloy-rlp",
  "reth-primitives",
  "revm",
  "revm-primitives",
@@ -2404,7 +2319,7 @@ dependencies = [
 [[package]]
 name = "sp1-zkvm"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#97d4ae2bd1e0092a9237af59d5258c165ff2939a"
+source = "git+https://github.com/succinctlabs/sp1.git#e413e82e86ef97007094d830da1d3b278075a4bc"
 dependencies = [
  "bincode",
  "cfg-if",
@@ -2956,9 +2871,9 @@ dependencies = [
 
 [[package]]
 name = "zeroize"
-version = "1.8.0"
+version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "63381fa6624bf92130a6b87c0d07380116f80b565c42cf0d754136f0238359ef"
+checksum = "525b4ec142c6b68a2d10f01f7bbf6755599ca3f81ea53b8431b7dd348f5fdb2d"
 dependencies = [
  "zeroize_derive",
 ]

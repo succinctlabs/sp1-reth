@@ -18,7 +18,7 @@ rlp = "0.5.2"
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
 
-reth-primitives = { git = "https://github.com/paradigmxyz/reth", default-features = false, tag = "v0.2.0-beta.6" }
+reth-primitives = { git = "https://github.com/sp1-patches/reth-new", branch = "ratan/feature-gate-secp256k1", default-features = false}
 revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", features = [
     "serde",
 ], default-features = false }
