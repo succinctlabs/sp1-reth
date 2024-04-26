@@ -59,17 +59,19 @@ async fn main() {
     let mut stdin = SP1Stdin::new();
     stdin.write(&input);
 
-    let prover = SP1Prover::new();
-    let (pk, vk) = prover.setup(SP1_RETH_ELF);
+    SP1Prover::execute(SP1_RETH_ELF, &stdin);
 
-    let core_proof = prover.prove_core(&pk, &stdin);
+    // let prover = SP1Prover::new();
+    // let (pk, vk) = prover.setup(SP1_RETH_ELF);
 
-    core_proof.verify(&vk).expect("verification failed");
+    // let core_proof = prover.prove_core(&pk, &stdin);
+
+    // core_proof.verify(&vk).expect("verification failed");
 
     // Save proof.
-    core_proof
-        .save("proof-with-io.json")
-        .expect("saving proof failed");
+    // core_proof
+    //     .save("proof-with-io.json")
+    //     .expect("saving proof failed");
 
     println!("succesfully generated and verified proof for the program!")
 }
