@@ -115,7 +115,7 @@ impl SP1RethInputInitializer for SP1RethInput {
         for account in initial_db.accounts.values() {
             let code = &account.info.code;
             if let Some(code) = code {
-                contracts.insert(code.bytecode.0.clone());
+                contracts.insert(code.bytecode_bytes().clone());
             }
         }
 

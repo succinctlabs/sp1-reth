@@ -3,7 +3,7 @@ pub mod init;
 
 use crate::init::SP1RethInputInitializer;
 use clap::Parser;
-use sp1_core::{utils::BabyBearPoseidon2, SP1Prover, SP1Stdin, SP1Verifier};
+use sp1_prover::{SP1Prover, SP1Stdin};
 use sp1_reth_primitives::SP1RethInput;
 use std::fs::File;
 
@@ -52,11 +52,10 @@ async fn main() {
     };
 
     // Generate proof.
-    sp1_core::utils::setup_logger();
+    sp1_sdk::utils::setup_logger();
     let mut stdin = SP1Stdin::new();
     stdin.write(&input);
 
-    let config = BabyBearPoseidon2::new();
     let proof = SP1Prover::prove_with_config(SP1_RETH_ELF, stdin, config).expect("proving failed");
 
     // Verify proof.

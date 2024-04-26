@@ -20,8 +20,8 @@
     ],
     "rust-analyzer.linkedProjects": [
         // "program/Cargo.toml",
-        "primitives/Cargo.toml",
-        // "script/Cargo.toml"
+        // "primitives/Cargo.toml",
+        "script/Cargo.toml"
     ],
     "rust-analyzer.cargo.buildScripts.enable": false,
     "rust-analyzer.procMacro.enable": false,

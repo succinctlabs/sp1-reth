@@ -23,6 +23,12 @@ We ran our benchmarks on a i4g.16xlarge instance on AWS. You may need to add a [
 
 ## Run
 
+To build your program if the Rust version required by your libraries is greater than the Succinct toolchain's version:
+
+```rust
+cargo prove build --ignore-rust-version
+```
+
 Make sure you have mounted your NVME hard drive in a RAID0 setup with at `raid0` with a `tmp` folder.
 
 ```
