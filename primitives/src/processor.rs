@@ -178,7 +178,7 @@ where
                     U256::from(self.header.as_mut().unwrap().base_fee_per_gas.unwrap());
                 blk_env.gas_limit = U256::from(self.header.as_mut().unwrap().gas_limit);
             })
-            .with_db(self.db.as_mut().take().unwrap())
+            .with_db(self.db.as_mut().unwrap())
             .build();
 
         let mut logs_bloom = Bloom::default();

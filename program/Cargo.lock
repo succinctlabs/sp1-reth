@@ -2293,7 +2293,6 @@ dependencies = [
  "alloy-rlp-derive",
  "alloy-rpc-types 0.1.0 (git+https://github.com/alloy-rs/alloy)",
  "anyhow",
- "hashbrown 0.14.3",
  "hex",
  "reth-primitives",
  "revm",

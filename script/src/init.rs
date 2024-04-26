@@ -71,7 +71,7 @@ impl SP1RethInputInitializer for SP1RethInput {
         let input = SP1RethInput {
             beneficiary: block.header.miner,
             gas_limit: block.header.gas_limit.try_into().unwrap(),
-            timestamp: block.header.timestamp.try_into().unwrap(),
+            timestamp: block.header.timestamp,
             extra_data: block.header.extra_data,
             mix_hash: block.header.mix_hash.unwrap(),
             transactions: txs,
@@ -124,7 +124,7 @@ impl SP1RethInputInitializer for SP1RethInput {
         let input = SP1RethInput {
             parent_state_trie: state_trie,
             parent_storage: storage,
-            contracts: contracts.iter().map(|c| c.clone()).collect(),
+            contracts: contracts.iter().cloned().collect(),
             ancestor_headers,
             ..input
         };

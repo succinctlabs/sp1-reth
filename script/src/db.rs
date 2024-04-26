@@ -109,10 +109,10 @@ impl RemoteDb {
                         withdrawals_root: header.withdrawals_root,
                         logs_bloom: header.logs_bloom.0.into(),
                         difficulty: header.difficulty,
-                        number: header.number.unwrap().try_into().unwrap(),
+                        number: header.number.unwrap(),
                         gas_limit: header.gas_limit.try_into().unwrap(),
                         gas_used: header.gas_used.try_into().unwrap(),
-                        timestamp: header.timestamp.try_into().unwrap(),
+                        timestamp: header.timestamp,
                         extra_data: header.extra_data.0.into(),
                         mix_hash: header.mix_hash.unwrap(),
                         nonce: u64::from_be_bytes(header.nonce.unwrap().0),
@@ -185,7 +185,7 @@ impl Database for RemoteDb {
         // Insert the account into the initial database.
         let account_info = AccountInfo::new(
             balance,
-            nonce.try_into().unwrap(),
+            nonce,
             Bytecode::new_raw(code.clone()).hash_slow(),
             Bytecode::new_raw(code),
         );

@@ -36,6 +36,9 @@ pub struct SP1RethArgs {
 
 #[tokio::main]
 async fn main() {
+    // Setup logger.
+    sp1_sdk::utils::setup_logger();
+
     // Parse arguments.
     let args = SP1RethArgs::parse();
 
