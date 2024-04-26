@@ -18,14 +18,14 @@ rlp = "0.5.2"
 serde = { version = "1.0", features = ["derive"] }
 thiserror = "1.0"
 
-reth-primitives = { git = "https://github.com/sp1-patches/reth-new", branch = "ratan/feature-gate-secp256k1", default-features = false}
+reth-primitives = { git = "https://github.com/sp1-patches/reth-new", branch = "ratan/feature-gate-secp256k1", default-features = false }
 revm = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", features = [
     "serde",
 ], default-features = false }
 revm-primitives = { git = "https://github.com/sp1-patches/revm-new", branch = "ratan/secp256k1-on-v35", default-features = false }
 
 anyhow = "1.0.79"
-hashbrown = "0.14.3"
+# hashbrown = "0.14.3"
 url = "2.5.0"
 hex = "0.4.3"
 

@@ -56,14 +56,15 @@ async fn main() {
     let mut stdin = SP1Stdin::new();
     stdin.write(&input);
 
-    let proof = SP1Prover::prove_with_config(SP1_RETH_ELF, stdin, config).expect("proving failed");
+    let prover = SP1Prover::new();
+    let (pk, vk) = prover.setup(SP1_RETH_ELF);
 
-    // Verify proof.
-    let config = BabyBearPoseidon2::new();
-    SP1Verifier::verify_with_config(SP1_RETH_ELF, &proof, config).expect("verification failed");
+    let core_proof = prover.prove_core(&pk, &stdin);
+
+    core_proof.verify(&vk).expect("verification failed");
 
     // Save proof.
-    proof
+    core_proof
         .save("proof-with-io.json")
         .expect("saving proof failed");
 

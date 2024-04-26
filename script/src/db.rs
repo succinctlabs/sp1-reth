@@ -16,9 +16,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use alloy_providers::provider::{HttpProvider, TempProvider};
+use alloy_provider::{Provider, RootProvider};
 use alloy_rpc_types::{BlockId, EIP1186AccountProofResponse};
+use alloy_transport_http::Http;
 use anyhow::Result;
+use reqwest::Client;
 use reth_primitives::revm_primitives::{Account, AccountInfo, Bytecode};
 use reth_primitives::{Address, Header, B256, U256};
 use revm::db::InMemoryDB;
@@ -31,7 +33,7 @@ use tokio::runtime::Handle;
 /// A database that fetches data from a [HttpProvider].
 pub struct RemoteDb {
     /// The provider to fetch data from.
-    pub provider: HttpProvider,
+    pub provider: RootProvider<Http<Client>>,
 
     /// The block number we are executing from.
     pub block_number: u64,
@@ -48,7 +50,7 @@ pub struct RemoteDb {
 
 impl RemoteDb {
     /// Creates a new provider database from a provider and block number.
-    pub fn new(provider: HttpProvider, block_number: u64) -> Self {
+    pub fn new(provider: RootProvider<Http<Client>>, block_number: u64) -> Self {
         RemoteDb {
             provider,
             block_number,
@@ -69,7 +71,7 @@ impl RemoteDb {
             let indices = keys.into_iter().map(|x| x.to_be_bytes().into()).collect();
             let proof = self.async_executor.block_on(async {
                 self.provider
-                    .get_proof(address, indices, Some(BlockId::from(block_number)))
+                    .get_proof(address, indices, BlockId::from(block_number))
                     .await
             })?;
             storage_proofs.insert(address, proof);
@@ -166,17 +168,17 @@ impl Database for RemoteDb {
         // Get the nonce, balance, and code to reconstruct the account.
         let nonce = self.async_executor.block_on(async {
             self.provider
-                .get_transaction_count(address, Some(BlockId::from(self.block_number)))
+                .get_transaction_count(address, BlockId::from(self.block_number))
                 .await
         })?;
         let balance = self.async_executor.block_on(async {
             self.provider
-                .get_balance(address, Some(BlockId::from(self.block_number)))
+                .get_balance(address, BlockId::from(self.block_number))
                 .await
         })?;
         let code = self.async_executor.block_on(async {
             self.provider
-                .get_code_at(address, Some(BlockId::from(self.block_number)))
+                .get_code_at(address, BlockId::from(self.block_number))
                 .await
         })?;
 
@@ -208,7 +210,7 @@ impl Database for RemoteDb {
                 .get_storage_at(
                     address.into_array().into(),
                     index,
-                    Some(BlockId::from(self.block_number)),
+                    BlockId::from(self.block_number),
                 )
                 .await
         })?;

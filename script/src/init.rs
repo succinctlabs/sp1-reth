@@ -18,13 +18,10 @@
 
 use crate::db::RemoteDb;
 use crate::SP1RethArgs;
-use alloy_providers::provider::HttpProvider;
-use alloy_providers::provider::TempProvider;
+use alloy_provider::{Provider, ProviderBuilder};
 use alloy_rpc_types::BlockTransactions;
-use alloy_transport_http::Http;
 use anyhow::Result;
 use async_trait::async_trait;
-use reth_primitives::Bytes;
 use sp1_reth_primitives::alloy2reth::IntoReth;
 use sp1_reth_primitives::mpt::proofs_to_tries;
 use sp1_reth_primitives::processor::EvmProcessor;
@@ -44,8 +41,8 @@ pub trait SP1RethInputInitializer {
 impl SP1RethInputInitializer for SP1RethInput {
     async fn initialize(args: &SP1RethArgs) -> Result<Self> {
         // Initialize the provider.
-        let http = Http::new(Url::parse(&args.rpc_url).expect("invalid rpc url"));
-        let provider: HttpProvider = HttpProvider::new(http);
+        let provider =
+            ProviderBuilder::new().on_http(Url::parse(&args.rpc_url).expect("invalid rpc url"));
 
         // Get the block.
         let parent_block = provider
@@ -58,7 +55,7 @@ impl SP1RethInputInitializer for SP1RethInput {
             .unwrap();
 
         // Intiialize the db.
-        let provider_db = RemoteDb::new(provider, parent_header.number.unwrap().as_limbs()[0]);
+        let provider_db = RemoteDb::new(provider, parent_header.number.unwrap());
 
         // Create the input.
         let txs = match block.transactions {
@@ -115,7 +112,7 @@ impl SP1RethInputInitializer for SP1RethInput {
         for account in initial_db.accounts.values() {
             let code = &account.info.code;
             if let Some(code) = code {
-                contracts.insert(code.bytecode_bytes().clone());
+                contracts.insert(code.bytecode.clone());
             }
         }
 
@@ -127,7 +124,7 @@ impl SP1RethInputInitializer for SP1RethInput {
         let input = SP1RethInput {
             parent_state_trie: state_trie,
             parent_storage: storage,
-            contracts: contracts.into_iter().map(Bytes).collect(),
+            contracts: contracts.iter().map(|c| c.clone()).collect(),
             ancestor_headers,
             ..input
         };
