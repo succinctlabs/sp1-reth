@@ -1,10 +1,8 @@
-pub mod db;
-pub mod init;
-
-use crate::init::SP1RethInputInitializer;
 use clap::Parser;
 use sp1_prover::{SP1Prover, SP1Stdin};
 use sp1_reth_primitives::SP1RethInput;
+use sp1_reth_utils::init::SP1RethInputInitializer;
+use sp1_sdk::utils;
 use std::fs::File;
 
 /// The version message for the SP1 Reth program.
@@ -44,7 +42,9 @@ async fn main() {
 
     // Get input.
     let input: SP1RethInput = if !args.use_cache {
-        let input = SP1RethInput::initialize(&args).await.unwrap();
+        let input = SP1RethInput::initialize(&args.rpc_url, args.block_number)
+            .await
+            .unwrap();
         let mut file =
             File::create(format!("{}.bin", args.block_number)).expect("unable to open file");
         bincode::serialize_into(&mut file, &input).expect("unable to serialize input");
@@ -55,7 +55,7 @@ async fn main() {
     };
 
     // Generate proof.
-    sp1_sdk::utils::setup_logger();
+    utils::setup_logger();
     let mut stdin = SP1Stdin::new();
     stdin.write(&input);
 

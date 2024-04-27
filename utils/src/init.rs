@@ -17,7 +17,6 @@
 // limitations under the License.
 
 use crate::db::RemoteDb;
-use crate::SP1RethArgs;
 use alloy_provider::{Provider, ProviderBuilder};
 use alloy_rpc_types::BlockTransactions;
 use anyhow::Result;
@@ -32,25 +31,25 @@ use url::Url;
 #[async_trait]
 pub trait SP1RethInputInitializer {
     /// Initialize [SP1RethInput] from [SP1RethArgs].
-    async fn initialize(args: &SP1RethArgs) -> Result<Self>
+    async fn initialize(rpc_url: &str, block_number: u64) -> Result<Self>
     where
         Self: Sized;
 }
 
 #[async_trait]
 impl SP1RethInputInitializer for SP1RethInput {
-    async fn initialize(args: &SP1RethArgs) -> Result<Self> {
+    async fn initialize(rpc_url: &str, block_number: u64) -> Result<Self> {
         // Initialize the provider.
         let provider =
-            ProviderBuilder::new().on_http(Url::parse(&args.rpc_url).expect("invalid rpc url"));
+            ProviderBuilder::new().on_http(Url::parse(&rpc_url).expect("invalid rpc url"));
 
         // Get the block.
         let parent_block = provider
-            .get_block_by_number((args.block_number - 1).into(), false)
+            .get_block_by_number((block_number - 1).into(), false)
             .await?;
         let parent_header = parent_block.unwrap().header;
         let block = provider
-            .get_block_by_number(args.block_number.into(), true)
+            .get_block_by_number(block_number.into(), true)
             .await?
             .unwrap();
 
