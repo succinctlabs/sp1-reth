@@ -3,10 +3,6 @@ pub mod init;
 
 use crate::init::SP1RethInputInitializer;
 use clap::Parser;
-use sp1_core::{
-    runtime::{Program, Runtime},
-    stark::MachineRecord,
-};
 use sp1_prover::{SP1Prover, SP1Stdin};
 use sp1_reth_primitives::SP1RethInput;
 use std::fs::File;
@@ -63,25 +59,17 @@ async fn main() {
     let mut stdin = SP1Stdin::new();
     stdin.write(&input);
 
-    let program = Program::from(SP1_RETH_ELF);
-    let mut runtime = Runtime::new(program);
-    runtime.write_vecs(&stdin.buffer);
-    runtime.run();
+    let prover = SP1Prover::new();
+    let (pk, vk) = prover.setup(SP1_RETH_ELF);
 
-    let stats = runtime.record.stats();
-    println!("{:?}", stats);
+    let core_proof = prover.prove_core(&pk, &stdin);
 
-    // let prover = SP1Prover::new();
-    // let (pk, vk) = prover.setup(SP1_RETH_ELF);
-
-    // let core_proof = prover.prove_core(&pk, &stdin);
-
-    // core_proof.verify(&vk).expect("verification failed");
+    core_proof.verify(&vk).expect("verification failed");
 
     // Save proof.
-    // core_proof
-    //     .save("proof-with-io.json")
-    //     .expect("saving proof failed");
+    core_proof
+        .save("proof-with-io.json")
+        .expect("saving proof failed");
 
     println!("succesfully generated and verified proof for the program!")
 }
