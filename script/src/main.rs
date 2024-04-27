@@ -3,6 +3,10 @@ pub mod init;
 
 use crate::init::SP1RethInputInitializer;
 use clap::Parser;
+use sp1_core::{
+    runtime::{Program, Runtime},
+    stark::MachineRecord,
+};
 use sp1_prover::{SP1Prover, SP1Stdin};
 use sp1_reth_primitives::SP1RethInput;
 use std::fs::File;
@@ -59,7 +63,13 @@ async fn main() {
     let mut stdin = SP1Stdin::new();
     stdin.write(&input);
 
-    SP1Prover::execute(SP1_RETH_ELF, &stdin);
+    let program = Program::from(SP1_RETH_ELF);
+    let mut runtime = Runtime::new(program);
+    runtime.write_vecs(&stdin.buffer);
+    runtime.run();
+
+    let stats = runtime.record.stats();
+    println!("{:?}", stats);
 
     // let prover = SP1Prover::new();
     // let (pk, vk) = prover.setup(SP1_RETH_ELF);

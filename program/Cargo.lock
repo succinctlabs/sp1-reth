@@ -49,7 +49,7 @@ dependencies = [
 [[package]]
 name = "alloy-consensus"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
+source = "git+https://github.com/alloy-rs/alloy#55a278c9db4e7e9b18b2bc2a290bd3de675d09f7"
 dependencies = [
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy)",
  "alloy-primitives",
@@ -76,7 +76,7 @@ dependencies = [
 [[package]]
 name = "alloy-eips"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
+source = "git+https://github.com/alloy-rs/alloy#55a278c9db4e7e9b18b2bc2a290bd3de675d09f7"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -99,7 +99,7 @@ dependencies = [
 [[package]]
 name = "alloy-genesis"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
+source = "git+https://github.com/alloy-rs/alloy#55a278c9db4e7e9b18b2bc2a290bd3de675d09f7"
 dependencies = [
  "alloy-primitives",
  "alloy-serde 0.1.0 (git+https://github.com/alloy-rs/alloy)",
@@ -174,7 +174,7 @@ dependencies = [
 [[package]]
 name = "alloy-rpc-types"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
+source = "git+https://github.com/alloy-rs/alloy#55a278c9db4e7e9b18b2bc2a290bd3de675d09f7"
 dependencies = [
  "alloy-consensus 0.1.0 (git+https://github.com/alloy-rs/alloy)",
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy)",
@@ -240,7 +240,7 @@ dependencies = [
 [[package]]
 name = "alloy-serde"
 version = "0.1.0"
-source = "git+https://github.com/alloy-rs/alloy#bbef8de3fd203bf6feb26dc619f42b2bb2ecd4e3"
+source = "git+https://github.com/alloy-rs/alloy#55a278c9db4e7e9b18b2bc2a290bd3de675d09f7"
 dependencies = [
  "alloy-primitives",
  "serde",
@@ -1806,7 +1806,7 @@ checksum = "adad44e29e4c806119491a7f06f03de4d1af22c3a680dd47f1e6e179439d1f56"
 [[package]]
 name = "reth-codecs"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#fe406926eeae8742241e44b984cac571ec1a9f77"
 dependencies = [
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
  "alloy-primitives",
@@ -1817,7 +1817,7 @@ dependencies = [
 [[package]]
 name = "reth-codecs-derive"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#fe406926eeae8742241e44b984cac571ec1a9f77"
 dependencies = [
  "convert_case 0.6.0",
  "proc-macro2",
@@ -1828,7 +1828,7 @@ dependencies = [
 [[package]]
 name = "reth-ethereum-forks"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#fe406926eeae8742241e44b984cac571ec1a9f77"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -1841,7 +1841,7 @@ dependencies = [
 [[package]]
 name = "reth-primitives"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#fe406926eeae8742241e44b984cac571ec1a9f77"
 dependencies = [
  "alloy-chains",
  "alloy-eips 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
@@ -1868,6 +1868,7 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_with",
+ "sp1-precompiles",
  "strum",
  "thiserror",
 ]
@@ -1875,7 +1876,7 @@ dependencies = [
 [[package]]
 name = "reth-rpc-types"
 version = "0.2.0-beta.6"
-source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#7ffc8ab11a4aa585664fec825354e0006592732b"
+source = "git+https://github.com/sp1-patches/reth-new?branch=ratan/feature-gate-secp256k1#fe406926eeae8742241e44b984cac571ec1a9f77"
 dependencies = [
  "alloy-genesis 0.1.0 (git+https://github.com/alloy-rs/alloy?rev=39b8695)",
  "alloy-primitives",
@@ -2257,7 +2258,7 @@ dependencies = [
 [[package]]
 name = "sp1-precompiles"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#e413e82e86ef97007094d830da1d3b278075a4bc"
+source = "git+https://github.com/succinctlabs/sp1.git#7ce13033a0557f964cd349393d367aa1bcf8fbe7"
 dependencies = [
  "anyhow",
  "bincode",
@@ -2274,7 +2275,7 @@ dependencies = [
 [[package]]
 name = "sp1-primitives"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#e413e82e86ef97007094d830da1d3b278075a4bc"
+source = "git+https://github.com/succinctlabs/sp1.git#7ce13033a0557f964cd349393d367aa1bcf8fbe7"
 dependencies = [
  "itertools 0.12.1",
  "lazy_static",
@@ -2318,7 +2319,7 @@ dependencies = [
 [[package]]
 name = "sp1-zkvm"
 version = "0.1.0"
-source = "git+https://github.com/succinctlabs/sp1.git#e413e82e86ef97007094d830da1d3b278075a4bc"
+source = "git+https://github.com/succinctlabs/sp1.git#7ce13033a0557f964cd349393d367aa1bcf8fbe7"
 dependencies = [
  "bincode",
  "cfg-if",
